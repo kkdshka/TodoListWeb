@@ -1,0 +1,35 @@
+{
+  "name": "kkdshka/todo-list-web",
+  "description": "Demo educational project",
+  "version": "1.0.0-dev",
+  "type": "application",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ksenia Kiselyova",
+      "email": "kkdshka@gmail.com",
+      "role": "developer"
+    }
+  ],
+  "require": {
+    "php": "~7.0",
+    "kkdshka/todo-list": "dev-master"
+  },
+  "repositories": [
+    {
+        "type": "git",
+        "url":  "https://github.com/kkdshka/TodoList.git"
+    }
+  ],
+  "require-dev": {
+    "phpunit/phpunit": "5.4.*",
+    "phake/phake": "2.*"
+  },
+  "autoload":
+  {
+    "psr-4":
+    {
+      "Kkdshka\\TodoListWeb\\": "src/"
+    }
+  }
+}
