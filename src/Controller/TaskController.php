@@ -5,6 +5,7 @@ declare (strict_types = 1);
 namespace Kkdshka\TodoListWeb\Controller;
 
 use Kkdshka\TodoList\Model\TaskManager;
+use Kkdshka\TodoListWeb\Http\Response;
 use Kkdshka\TodoListWeb\View\Renderer;
 
 /**
@@ -12,39 +13,38 @@ use Kkdshka\TodoListWeb\View\Renderer;
  *
  * @author Ксю
  */
-class TaskController {
+class TaskController extends AbstractController {
     private $taskManager;
-    private $renderer;
     
     public function __construct(TaskManager $taskManager, Renderer $renderer) {
+        parent::__construct($renderer);
         $this->taskManager = $taskManager;
-        $this->renderer = $renderer;
     }
     
-    public function allAction() : string {
+    public function allAction() : Response {
         $tasks = $this->taskManager->getAll();
-        return $this->renderer->render("task/all", ['tasks' => $tasks]);
+        return $this->render("task/all", ['tasks' => $tasks]);
     }
     
-    public function newAction() : string {
-        return $this->renderer->render("task/new");
+    public function newAction() : Response {
+        return $this->render("task/new");
     }
     
-    public function createAction(array $form) : string {
+    public function createAction(array $form) : Response {
         $subject = $form['subject'];
         $this->taskManager->create($subject);
-        return $this->allAction();
+        return $this->redirect("/");
     }
     
-    public function completeAction(int $id) : string {
+    public function completeAction(int $id) : Response {
         $task = $this->taskManager->findTaskById($id);
         $this->taskManager->complete($task);
-        return $this->allAction();
+        return $this->redirect("/");
     }
     
-    public function deleteAction(int $id) : string {
+    public function deleteAction(int $id) : Response {
         $task = $this->taskManager->findTaskById($id);
         $this->taskManager->delete($task);
-        return  $this->allAction();
+        return $this->redirect("/");
     }
 }

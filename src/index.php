@@ -5,6 +5,7 @@ use Kkdshka\TodoListWeb\Controller\TaskController;
 use Kkdshka\TodoListWeb\View\PlainPhpRenderer;
 use Kkdshka\TodoList\Model\TaskManager;
 use Kkdshka\TodoList\Repository\RepositoryFactory;
+use Kkdshka\TodoListWeb\Http\Response;
 //use InvalidArgumentException;
 
 $connectionUrl = "csv:C:/Development/Temp/todolist.csv";
@@ -22,20 +23,32 @@ else {
 $method = $_SERVER['REQUEST_METHOD'];
 
 if ($action == '' && $method == 'GET') {
-    echo $taskController->allAction();
+    $response = $taskController->allAction();
+    respond($response);
 }
 elseif ($action == 'create' && $method == 'GET') {
-    echo $taskController->newAction();
+    $response = $taskController->newAction();
+    respond($response);
 }
 elseif ($action == 'create' && $method == 'POST') {
-    echo $taskController->createAction($_POST);
+    $response = $taskController->createAction($_POST);
+    respond($response);
 }
 elseif ($action == 'complete' && $method == 'GET') {
-    echo $taskController->completeAction($_GET['id']);
+    $response = $taskController->completeAction($_GET['id']);
+    respond($response);
 }
 elseif ($action == 'delete' && $method == 'GET') {
-    echo $taskController->deleteAction($_GET['id']);
+    $response = $taskController->deleteAction($_GET['id']);
+    respond($response);
 }
 else {
     throw new InvalidArgumentException("Unknown action $action.");
+}
+
+function respond(Response $response) {
+    foreach ($response->getHeaders() as $name => $value) {
+        header("$name: $value");
+    }
+    echo $response->getBody();
 }
