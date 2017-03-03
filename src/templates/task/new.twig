@@ -1,23 +1,27 @@
-<form action="/?action=create" method="POST">
-    <div><label for="subject">Subject</label>
-        <input id="subject" name="subject" placeholder="Enter your subject">
-    </div>
-    <div><label for="description">Description</label>
-        <textarea id="description" name="description" placeholder="Enter description of your task"></textarea>
-    </div>
-    <div><label id="priority">Priority</label>
-        <select id="priority" name="priority">
-            {% for value, name in priorities %} 
-                <option value="{{ value }}">{{ name }}</option>
-            {% endfor %}
-        </select>
-    </div>
-    <div><label id="status">Status</label>
-        <select id="status" name="status">
-            {% for value, name in statuses %} 
-                <option value="{{ value }}">{{ name }}</option>
-            {% endfor %}
-        </select>
-    </div>
-    <div><input type="submit" value="create"></div>
-</form>
+{% extends "base.twig" %}
+{% block title %}Creating new task{% endblock %}
+{% block content %}
+    <form action="/?action=create" method="POST">
+        <div><label for="subject">Subject</label>
+            <input id="subject" name="subject" placeholder="Enter your subject">
+        </div>
+        <div><label for="description">Description</label>
+            <textarea id="description" name="description" placeholder="Enter description of your task"></textarea>
+        </div>
+        <div><label id="priority">Priority</label>
+            <select id="priority" name="priority">
+                {% for value, name in priorities %} 
+                    <option value="{{ value }}">{{ name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div><label id="status">Status</label>
+            <select id="status" name="status">
+                {% for value, name in statuses %} 
+                    <option value="{{ value }}">{{ name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div><input type="submit" value="create"></div>
+    </form>
+{% endblock %}
