@@ -13,7 +13,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kkdshka/TodoList.git",
-                "reference": "ee7992d03d4523ac06667d4a63c9ae69a80564e9"
+                "reference": "0c451b1743b2e841c626cc0a8270e797c1402b27"
             },
             "require": {
                 "php": "~7.0"
@@ -39,7 +39,7 @@
                 }
             ],
             "description": "Demo educational project",
-            "time": "2017-01-12 17:41:56"
+            "time": "2017-02-20 15:11:06"
         }
     ],
     "packages-dev": [

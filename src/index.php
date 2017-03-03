@@ -34,6 +34,14 @@ elseif ($action == 'create' && $method == 'POST') {
     $response = $taskController->createAction($_POST);
     respond($response);
 }
+elseif ($action == 'edit' && $method == 'GET') {
+    $response = $taskController->editAction($_GET['id']);
+    respond($response);
+}
+elseif ($action == 'edit' && $method == 'POST') {
+    $response = $taskController->updateAction($_GET['id'], $_POST);
+    respond($response);
+}
 elseif ($action == 'complete' && $method == 'GET') {
     $response = $taskController->completeAction($_GET['id']);
     respond($response);
