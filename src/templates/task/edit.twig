@@ -1,0 +1,32 @@
+<form action="/?action=edit&id={{ task.id }}" method="POST">
+    <div><label for="subject">Subject</label>
+        <input id="subject" name="subject" value="{{ task.subject }}">
+    </div>
+    <div><label for="description">Description</label>
+        <textarea id="description" name="description">{{ task.description }}</textarea>
+    </div>
+    <div><label id="priority">Priority</label>
+        <select id="priority" name="priority" value="{{ task.priority }}">
+            {% for value, name in priorities %} 
+                {% if value == task.priority %}
+                    <option selected value="{{ value }}">{{ name }}</option>
+                {% else %}
+                    <option value="{{ value }}">{{ name }}</option>    
+                {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <div><label id="status">Status</label>
+        <select id="status" name="status" value="{{ task.status }}">
+            {% for  value, name in statuses %} 
+                {% if value == task.status %}
+                    <option selected value="{{ value }}">{{ name }}</option>
+                {% else %}    
+                    <option value="{{ value }}">{{ name }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <div><input type="submit" value="edit"></div>
+    <div><input type="reset" value="Reset changes"</div>
+</form>

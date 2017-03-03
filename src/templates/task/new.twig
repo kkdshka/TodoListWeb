@@ -7,18 +7,17 @@
     </div>
     <div><label id="priority">Priority</label>
         <select id="priority" name="priority">
-            <?php foreach ($priorities as $value => $name): ?> 
-                <option value="<?= $value ?>"><?= $name ?></option>
-            <?php endforeach; ?>
+            {% for value, name in priorities %} 
+                <option value="{{ value }}">{{ name }}</option>
+            {% endfor %}
         </select>
     </div>
     <div><label id="status">Status</label>
         <select id="status" name="status">
-            <?php foreach ($statuses as $value => $name): ?> 
-                <option value="<?= $value ?>"><?= $name ?></option>
-            <?php endforeach; ?>
+            {% for value, name in statuses %} 
+                <option value="{{ value }}">{{ name }}</option>
+            {% endfor %}
         </select>
     </div>
-
     <div><input type="submit" value="create"></div>
 </form>

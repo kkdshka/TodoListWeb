@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use Kkdshka\TodoListWeb\Controller\TaskController;
-use Kkdshka\TodoListWeb\View\PlainPhpRenderer;
+use Kkdshka\TodoListWeb\View\TwigRenderer;
 use Kkdshka\TodoList\Model\TaskManager;
 use Kkdshka\TodoList\Repository\RepositoryFactory;
 use Kkdshka\TodoListWeb\Http\Response;
@@ -11,7 +11,7 @@ use Kkdshka\TodoListWeb\Http\Response;
 $connectionUrl = "csv:C:/Development/Temp/todolist.csv";
 $repository = (new RepositoryFactory)->create($connectionUrl);
 $taskManager = new TaskManager($repository);
-$renderer = new PlainPhpRenderer(__DIR__ . "/templates");
+$renderer = new TwigRenderer(__DIR__ . "/templates");
 $taskController = new TaskController($taskManager, $renderer);
 
 if (array_key_exists('action', $_GET)) {

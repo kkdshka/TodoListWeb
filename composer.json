@@ -23,7 +23,8 @@
   ],
   "require-dev": {
     "phpunit/phpunit": "5.4.*",
-    "phake/phake": "2.*"
+    "phake/phake": "2.*",
+    "twig/twig": "~2.0"
   },
   "autoload":
   {
