@@ -1,0 +1,45 @@
+form div {
+    padding: 5px;
+}
+
+.panel input[type="text"],
+.panel textarea,
+.panel select {
+    border: 1px solid #dddddd;
+    border-radius: 2px;
+    padding: 2px;
+}
+
+.panel input[type="text"],
+.panel textarea {
+    width: 75%;
+}
+
+.panel textarea {
+    height: 10em;
+}
+
+.panel select {
+    width: 77%;
+    box-shadow: 0 5px 10px #ededed;
+}
+
+.button {
+    margin: 0;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    color: #ffffff;
+}
+
+.save {
+    background: #5cb85c;
+}
+
+.reset {
+    background: #ffd700;
+}
+
+.create {
+    background: #5cb85c;
+}

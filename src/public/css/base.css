@@ -1,0 +1,29 @@
+* {
+    font-family: sans-serif;
+}
+
+.caption {
+    border: 2px solid #dddddd;
+    border-radius: 5px 5px 0px 0px;
+    background: #ededed;
+    padding: 10px;
+    text-align: left;
+}
+
+.panel {
+    border-radius: 0px 0px 5px 5px;
+}
+
+.wide {
+    width: 90%;
+}
+
+.medium {
+    width: 50%;
+}
+
+.panel-content {
+    border: 2px solid #dddddd;
+    border-top: none;
+    padding: 10px;
+}

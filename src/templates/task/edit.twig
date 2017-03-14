@@ -1,36 +1,48 @@
 {% extends "base.twig" %}
 {% block title %}Editing task{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="/public/css/form.css" />
+{% endblock %}
 {% block content %}
-    <form action="/?action=edit&id={{ task.id }}" method="POST">
-        <div><label for="subject">Subject</label>
-            <input id="subject" name="subject" value="{{ task.subject }}">
+    <div class="panel medium">
+        <div class="caption">Edit task</div>
+        <div class="panel-content">
+            <form action="/?action=edit&id={{ task.id }}" method="POST">
+                <div><label for="subject">Subject:</label></div>
+                <div>    
+                    <input type="text" id="subject" name="subject" value="{{ task.subject }}">
+                </div>
+                <div><label for="description">Description:</label></div>
+                <div>
+                    <textarea id="description" name="description">{{ task.description }}</textarea>
+                </div>
+                <div><label for="priority">Priority:</label></div>
+                <div>
+                    <select id="priority" name="priority" value="{{ task.priority }}">
+                        {% for value, name in priorities %} 
+                            {% if value == task.priority %}
+                                <option selected value="{{ value }}">{{ name }}</option>
+                            {% else %}
+                                <option value="{{ value }}">{{ name }}</option>    
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+                <div><label for="status">Status:</label></div>
+                <div>
+                    <select id="status" name="status" value="{{ task.status }}">
+                        {% for  value, name in statuses %} 
+                            {% if value == task.status %}
+                                <option selected value="{{ value }}">{{ name }}</option>
+                            {% else %}    
+                                <option value="{{ value }}">{{ name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+                <div><input class="button save" type="submit" value="Save"></div>
+                <div><input class="button reset" type="reset" value="Reset changes"</div>
+            </form>
         </div>
-        <div><label for="description">Description</label>
-            <textarea id="description" name="description">{{ task.description }}</textarea>
-        </div>
-        <div><label id="priority">Priority</label>
-            <select id="priority" name="priority" value="{{ task.priority }}">
-                {% for value, name in priorities %} 
-                    {% if value == task.priority %}
-                        <option selected value="{{ value }}">{{ name }}</option>
-                    {% else %}
-                        <option value="{{ value }}">{{ name }}</option>    
-                    {% endif %}
-                {% endfor %}
-            </select>
-        </div>
-        <div><label id="status">Status</label>
-            <select id="status" name="status" value="{{ task.status }}">
-                {% for  value, name in statuses %} 
-                    {% if value == task.status %}
-                        <option selected value="{{ value }}">{{ name }}</option>
-                    {% else %}    
-                        <option value="{{ value }}">{{ name }}</option>
-                    {% endif %}
-                {% endfor %}
-            </select>
-        </div>
-        <div><input type="submit" value="edit"></div>
-        <div><input type="reset" value="Reset changes"</div>
-    </form>
+    </div>
 {% endblock %}

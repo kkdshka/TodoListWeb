@@ -1,0 +1,56 @@
+.panel table {
+    width: 100%;
+    border-spacing: 0;
+}
+
+.panel thead th {
+    text-align: left;
+    border-bottom: 1px solid #dddddd;
+    padding: 8px;
+}
+
+.panel tbody tr:nth-child(odd) {
+    background: #ededed;
+}
+
+.panel tbody td {
+    border-top: 1px solid #dddddd;
+    padding: 8px;
+}
+
+.panel tfoot td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.button {
+    border-radius: 3px 3px 3px 3px;
+    background: #5bc0de;
+    color: #ffffff;
+    text-decoration: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.complete {
+    background: url(/public/img/all_complete.png) no-repeat;
+    width: 19px;
+    height: 19px;
+    display: block;
+}
+
+.edit {
+    background: url(/public/img/all_edit.png) no-repeat;
+    width: 19px;
+    height: 19px;
+    display: block;
+}
+
+.delete {
+    background: url(/public/img/all_delete.png) no-repeat;
+    width: 19px;
+    height: 19px;
+    display: block;
+}
