@@ -1,5 +1,13 @@
+.error {
+    border-radius: 2px;
+    padding: 10px;
+    width: 72%;
+    background: #ffc7c7;
+    color: #794044;
+}
+
 form div {
-    padding: 5px;
+    padding: 5px 0px;
 }
 
 .panel input[type="text"],

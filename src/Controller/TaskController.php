@@ -37,7 +37,7 @@ class TaskController extends AbstractController {
         Status::STATUS_DELAYED => "Delayed",
         Status::STATUS_COMPLETED => "Completed"
     ];
-
+    
     public function __construct(TaskManager $taskManager, Renderer $renderer) {
         parent::__construct($renderer);
         $this->taskManager = $taskManager;
@@ -55,11 +55,25 @@ class TaskController extends AbstractController {
     public function newAction(): Response {
         return $this->render("task/new", [
             'priorities' => self::$priorities,
-            'statuses' => self::$statuses
+            'statuses' => self::$statuses,
+            'task' => ['priority' => Priority::NORMAL, 'status' => Status::STATUS_NEW]
         ]);
     }
 
     public function createAction(array $form): Response {
+        $errors = [];
+        if (empty($form['subject'])) {
+            $errors[] = "Subject can't be empty!";
+        }
+        if (!empty($errors)) {
+            return $this->render("task/new", [
+                'priorities' => self::$priorities,
+                'statuses' => self::$statuses,
+                'errors' => $errors,
+                'task' => $form   
+            ]);
+        }
+        
         $task = new Task(
             $form['subject'], 
             $form['description'], 
@@ -80,6 +94,18 @@ class TaskController extends AbstractController {
     }
 
     public function updateAction(int $id, array $form): Response {
+        $errors = [];
+        if (empty($form['subject'])) {
+            $errors[] = "Subject can't be empty!";
+        }
+        if (!empty($errors)) {
+            $form['id'] = $id;
+            return $this->render("task/edit", [
+                'errors' => $errors,
+                'task' => $form   
+            ]);
+        }
+        
         $task = $this->taskManager->findTaskById($id);
 
         $task->setSubject($form['subject']);
@@ -88,7 +114,7 @@ class TaskController extends AbstractController {
         $task->setStatus($form['status']);
 
         $this->taskManager->update($task);
-
+        
         return $this->redirect("/");
     }
 

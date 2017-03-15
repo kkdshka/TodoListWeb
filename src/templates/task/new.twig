@@ -8,27 +8,50 @@
         <div class="caption">New task</div>
         <div class="panel-content">
             <form action="/?action=create" method="POST">
+                {% for error in errors %} 
+                <div class="error">{{ error }}</div>
+                {% endfor %}
                 <div><label for="subject">Subject:</label></div>
                 <div>
-                    <input type="text" id="subject" name="subject" placeholder="Enter your subject">
+                    <input 
+                        type="text" 
+                        id="subject" 
+                        name="subject" 
+                        placeholder="Enter your subject"
+                        value="{{ task.subject | default("") }}"
+                    />
                 </div>
                 <div><label for="description">Description:</label></div>
                 <div>
-                    <textarea id="description" name="description" placeholder="Enter description of your task"></textarea>
+                    <textarea 
+                        id="description" 
+                        name="description" 
+                        placeholder="Enter description of your task"
+                    >
+                        {{ task.description | default("") }}
+                    </textarea>
                 </div>
                 <div><label for="priority">Priority:</label></div>
                 <div>
                     <select id="priority" name="priority">
                         {% for value, name in priorities %} 
-                            <option value="{{ value }}">{{ name }}</option>
+                            {% if value == task.priority %}
+                                <option selected value="{{ value }}">{{ name }}</option>
+                            {% else %}
+                                <option value="{{ value }}">{{ name }}</option>    
+                            {% endif %}
                         {% endfor %}
                     </select>
                 </div>
                     <div><label for="status">Status:</label></div>
                 <div>
                     <select id="status" name="status">
-                        {% for value, name in statuses %} 
-                            <option value="{{ value }}">{{ name }}</option>
+                        {% for  value, name in statuses %} 
+                            {% if value == task.status %}
+                                <option selected value="{{ value }}">{{ name }}</option>
+                            {% else %}    
+                                <option value="{{ value }}">{{ name }}</option>
+                            {% endif %}
                         {% endfor %}
                     </select>
                 </div>

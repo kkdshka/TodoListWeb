@@ -7,6 +7,9 @@
     <div class="panel medium">
         <div class="caption">Edit task</div>
         <div class="panel-content">
+            {% for error in errors %} 
+                <div class="error">{{ error }}</div>
+            {% endfor %}
             <form action="/?action=edit&id={{ task.id }}" method="POST">
                 <div><label for="subject">Subject:</label></div>
                 <div>    
