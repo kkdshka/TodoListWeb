@@ -46,16 +46,12 @@ class TaskController extends AbstractController {
     public function allAction(): Response {
         $tasks = $this->taskManager->getAll();
         return $this->render("task/all", [
-            'priorities' => self::$priorities,
-            'statuses' => self::$statuses,
             'tasks' => $tasks
         ]);
     }
 
     public function newAction(): Response {
         return $this->render("task/new", [
-            'priorities' => self::$priorities,
-            'statuses' => self::$statuses,
             'task' => ['priority' => Priority::NORMAL, 'status' => Status::STATUS_NEW]
         ]);
     }
@@ -67,8 +63,6 @@ class TaskController extends AbstractController {
         }
         if (!empty($errors)) {
             return $this->render("task/new", [
-                'priorities' => self::$priorities,
-                'statuses' => self::$statuses,
                 'errors' => $errors,
                 'task' => $form   
             ]);
@@ -87,8 +81,6 @@ class TaskController extends AbstractController {
     public function editAction(int $id): Response {
         $task = $this->taskManager->findTaskById($id);
         return $this->render("task/edit", [
-            'priorities' => self::$priorities,
-            'statuses' => self::$statuses,
             'task' => $task
         ]);
     }
@@ -131,4 +123,9 @@ class TaskController extends AbstractController {
         return $this->redirect("/");
     }
 
+    protected function render(string $template, array $vars = array()) : Response {
+        $vars['statuses'] = self::$statuses;
+        $vars['priorities'] = self::$priorities;
+        return parent::render($template, $vars);
+    }
 }
