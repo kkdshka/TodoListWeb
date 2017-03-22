@@ -27,3 +27,12 @@
     border-top: none;
     padding: 10px;
 }
+
+.success {
+    border-radius: 2px;
+    padding: 10px;
+    width: 88%;
+    background: #e9f0d8;
+    color: #44792f;
+    margin-bottom: 2em;
+}

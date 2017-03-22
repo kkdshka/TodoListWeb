@@ -6,12 +6,21 @@ use Kkdshka\TodoListWeb\View\TwigRenderer;
 use Kkdshka\TodoList\Model\TaskManager;
 use Kkdshka\TodoList\Repository\RepositoryFactory;
 use Kkdshka\TodoListWeb\Http\Response;
+use Kkdshka\TodoListWeb\Http\Flash;
+
+session_start();
+if (array_key_exists('flash', $_SESSION)) {
+    $flash = unserialize($_SESSION['flash']);
+}
+ else {
+    $flash = new Flash();
+}
 
 $connectionUrl = "csv:C:/Development/Temp/todolist.csv";
 $repository = (new RepositoryFactory)->create($connectionUrl);
 $taskManager = new TaskManager($repository);
 $renderer = new TwigRenderer(__DIR__ . "/templates");
-$taskController = new TaskController($taskManager, $renderer);
+$taskController = new TaskController($taskManager, $renderer, $flash);
 
 if (array_key_exists('action', $_GET)) {
     $action = $_GET['action'];
@@ -45,6 +54,8 @@ elseif ($action == 'delete' && $method == 'GET') {
 else {
     throw new InvalidArgumentException("Unknown action $action.");
 }
+
+$_SESSION['flash'] = serialize($flash);
 
 foreach ($response->getHeaders() as $name => $value) {
     header("$name: $value");

@@ -11,6 +11,7 @@ use Kkdshka\TodoList\Model\{
     Task
 };
 use Kkdshka\TodoListWeb\Http\Response;
+use Kkdshka\TodoListWeb\Http\Flash;
 use Kkdshka\TodoListWeb\View\Renderer;
 
 /**
@@ -38,8 +39,8 @@ class TaskController extends AbstractController {
         Status::STATUS_COMPLETED => "Completed"
     ];
     
-    public function __construct(TaskManager $taskManager, Renderer $renderer) {
-        parent::__construct($renderer);
+    public function __construct(TaskManager $taskManager, Renderer $renderer, Flash $flash) {
+        parent::__construct($renderer, $flash);
         $this->taskManager = $taskManager;
     }
 
@@ -74,7 +75,11 @@ class TaskController extends AbstractController {
             (int) $form['priority'], 
             $form['status']
         );
+        
         $this->taskManager->create($task);
+        
+        $this->addFlash('success', 'Task successfully created!');
+        
         return $this->redirect("/");
     }
 
@@ -107,6 +112,8 @@ class TaskController extends AbstractController {
 
         $this->taskManager->update($task);
         
+        $this->addFlash('success', 'Task successfully edited!');
+
         return $this->redirect("/");
     }
 
@@ -120,6 +127,9 @@ class TaskController extends AbstractController {
     public function deleteAction(int $id): Response {
         $task = $this->taskManager->findTaskById($id);
         $this->taskManager->delete($task);
+        
+        $this->addFlash('success', 'Task successfully deleted!');
+        
         return $this->redirect("/");
     }
 

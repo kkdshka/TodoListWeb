@@ -3,6 +3,7 @@
 namespace Kkdshka\TodoListWeb\Controller;
 
 use Kkdshka\TodoListWeb\Http\Response;
+use Kkdshka\TodoListWeb\Http\Flash;
 use Kkdshka\TodoListWeb\View\Renderer;
 
 /**
@@ -12,12 +13,15 @@ use Kkdshka\TodoListWeb\View\Renderer;
  */
 abstract class AbstractController {
     private $renderer;
+    private $flash;
 
-    public function __construct(Renderer $renderer) {
+    public function __construct(Renderer $renderer, Flash $flash) {
             $this->renderer = $renderer;
+            $this->flash = $flash;
     }    
     
     protected function render(string $template, array $vars = []) : Response {
+        $vars['flash'] = $this->flash->getMessages(); 
         $response = new Response;
         $body = $this->renderer->render($template, $vars);
         $response->setBody($body);
@@ -29,4 +33,8 @@ abstract class AbstractController {
         $response->setHeader('Location', $location);
         return $response;
     } 
+    
+    protected function addFlash(string $type, string $message) {
+        $this->flash->addMessage($type, $message);
+    }
 }

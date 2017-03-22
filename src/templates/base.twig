@@ -7,6 +7,9 @@
         {% block css %}{% endblock %}
     </head>
     <body>
+        {% for type, message in flash %}
+            <div class="{{ type }}">{{ message }}</div>
+        {% endfor %}
         {% block content %}{% endblock %}
     </body>
 </html>
