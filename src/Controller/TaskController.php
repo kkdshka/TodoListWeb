@@ -15,7 +15,7 @@ use Kkdshka\TodoListWeb\Http\Flash;
 use Kkdshka\TodoListWeb\View\Renderer;
 
 /**
- * Description of TaskController
+ * Conteroller for task.
  *
  * @author Ксю
  */
@@ -39,6 +39,11 @@ class TaskController extends AbstractController {
         Status::STATUS_COMPLETED => "Completed"
     ];
     
+    /**
+     * @param TaskManager $taskManager Task manager.
+     * @param Renderer $renderer Template renderer.
+     * @param Flash $flash Flash messages.
+     */
     public function __construct(TaskManager $taskManager, Renderer $renderer, Flash $flash) {
         parent::__construct($renderer, $flash);
         $this->taskManager = $taskManager;
@@ -133,6 +138,11 @@ class TaskController extends AbstractController {
         return $this->redirect("/");
     }
 
+    /**
+     * Adds common variables to $vars[].
+     * 
+     * @return Response
+     */
     protected function render(string $template, array $vars = array()) : Response {
         $vars['statuses'] = self::$statuses;
         $vars['priorities'] = self::$priorities;

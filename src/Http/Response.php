@@ -2,6 +2,11 @@
 
 namespace Kkdshka\TodoListWeb\Http;
 
+/**
+ * Holds response data.
+ * 
+ * @author kkdshka
+ */
 class Response {
     private $body = '';
     private $headers = [];

@@ -5,7 +5,7 @@ namespace Kkdshka\TodoListWeb\Http;
 use InvalidArgumentException;
 
 /**
- * Description of Flash
+ * Holds flash messages.
  *
  * @author Ксю
  */
