@@ -8,6 +8,7 @@ namespace Kkdshka\TodoListWeb\View;
  * @author kkdshka
  */
 interface Renderer {
+    
     /**
      * Renders template with given variables.
      * 
@@ -15,4 +16,5 @@ interface Renderer {
      * @param array $templateVars Variables for template (e.g. 'name' => 'value').
      */
     function render(string $templateName, array $templateVars) : string;
+    
 }

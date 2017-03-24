@@ -10,6 +10,7 @@ use InvalidArgumentException;
  * @author kkdshka
  */
 class Flash {
+    
     const ERROR = 'error';
     const SUCCESS = 'success';
     
@@ -32,4 +33,5 @@ class Flash {
         $this->messages = [];
         return $messages;
     }
+    
 }

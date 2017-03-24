@@ -1,5 +1,4 @@
 <?php
-
 declare (strict_types = 1);
 
 namespace Kkdshka\TodoListWeb\Controller;
@@ -25,6 +24,7 @@ class TaskController extends AbstractController {
      * @var TaskManager
      */
     private $taskManager;
+    
     private static $priorities = [
         Priority::LOWEST => "Lowest",
         Priority::LOW => "Low",
@@ -32,6 +32,7 @@ class TaskController extends AbstractController {
         Priority::HIGH => "High",
         Priority::HIGHEST => "Highest"
     ];
+    
     private static $statuses = [
         Status::STATUS_NEW => "New",
         Status::STATUS_IN_PROGRESS => "In progress",
@@ -148,4 +149,5 @@ class TaskController extends AbstractController {
         $vars['priorities'] = self::$priorities;
         return parent::render($template, $vars);
     }
+    
 }

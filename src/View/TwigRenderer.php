@@ -11,6 +11,7 @@ use Twig_Loader_Filesystem;
  * @author kkdshka
  */
 class TwigRenderer implements Renderer {
+    
     /**
      * Template renderer.
      * 
@@ -33,4 +34,5 @@ class TwigRenderer implements Renderer {
         $template = $templateName . ".twig";
         return $this->twig->render($template, $templateVars);
     }
+    
 }

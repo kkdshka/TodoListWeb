@@ -12,10 +12,12 @@ use Kkdshka\TodoListWeb\View\Renderer;
  * @author kkdshka
  */
 abstract class AbstractController {
+    
     /**
      * @var Renderer 
      */
     private $renderer;
+    
     /**
      * @var Flash
      */
@@ -66,4 +68,5 @@ abstract class AbstractController {
     protected function addFlash(string $type, string $message) {
         $this->flash->addMessage($type, $message);
     }
+    
 }

@@ -41,4 +41,5 @@ class FlashTest extends TestCase {
         
         $this->assertEquals([], $flash->getMessages());
     }
+    
 }

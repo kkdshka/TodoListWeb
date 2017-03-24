@@ -8,6 +8,7 @@ namespace Kkdshka\TodoListWeb\Http;
  * @author kkdshka
  */
 class Response {
+    
     private $body = '';
     private $headers = [];
     
@@ -26,4 +27,5 @@ class Response {
     public function getHeaders() : array {
         return $this->headers;
     }
+    
 }

@@ -10,6 +10,7 @@ use InvalidArgumentException;
  * @author kkdshka
  */
 class PlainPhpRenderer implements Renderer {
+    
     /**
      * @var string 
      */
@@ -36,4 +37,5 @@ class PlainPhpRenderer implements Renderer {
         $html = ob_get_clean();
         return $html;
     }
+    
 }

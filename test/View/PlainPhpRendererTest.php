@@ -19,4 +19,5 @@ class PlainPhpRendererTest extends TestCase {
         $expected = '<html>test</html>';
         $this->assertEquals($expected, $actual);
     }
+    
 }
