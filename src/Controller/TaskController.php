@@ -17,7 +17,7 @@ use Kkdshka\TodoListWeb\View\Renderer;
 /**
  * Conteroller for task.
  *
- * @author Ксю
+ * @author kkdshka
  */
 class TaskController extends AbstractController {
 

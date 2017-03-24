@@ -8,7 +8,7 @@ use Twig_Loader_Filesystem;
 /**
  * Renders Twig template.
  *
- * @author Ксю
+ * @author kkdshka
  */
 class TwigRenderer implements Renderer {
     /**

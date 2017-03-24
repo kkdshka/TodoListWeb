@@ -5,7 +5,7 @@ namespace Kkdshka\TodoListWeb\View;
 /**
  * Renders template.
  * 
- * @author Ксю
+ * @author kkdshka
  */
 interface Renderer {
     /**

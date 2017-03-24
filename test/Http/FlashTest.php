@@ -5,6 +5,9 @@ namespace Kkdshka\TodoListWeb\Http;
 use \PHPUnit\Framework\TestCase;
 use Kkdshka\TodoListWeb\Http\Flash;
 
+/**
+ * @author kkdshka
+ */
 class FlashTest extends TestCase {
     
     /**

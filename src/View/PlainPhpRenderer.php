@@ -7,7 +7,7 @@ use InvalidArgumentException;
 /**
  * Renders PHP template.
  *
- * @author Ксю
+ * @author kkdshka
  */
 class PlainPhpRenderer implements Renderer {
     /**

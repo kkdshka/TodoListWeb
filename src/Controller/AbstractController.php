@@ -9,7 +9,7 @@ use Kkdshka\TodoListWeb\View\Renderer;
 /**
  * Contains helpers for other controllers.
  *
- * @author Ксю
+ * @author kkdshka
  */
 abstract class AbstractController {
     /**

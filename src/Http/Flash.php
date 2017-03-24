@@ -7,7 +7,7 @@ use InvalidArgumentException;
 /**
  * Holds flash messages.
  *
- * @author Ксю
+ * @author kkdshka
  */
 class Flash {
     const ERROR = 'error';
