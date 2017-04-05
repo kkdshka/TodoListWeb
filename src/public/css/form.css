@@ -11,6 +11,7 @@ form div {
 }
 
 .panel input[type="text"],
+.panel input[type="password"],
 .panel textarea,
 .panel select {
     border: 1px solid #dddddd;

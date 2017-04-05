@@ -1,10 +1,19 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Kkdshka\TodoListWeb\Controller\TaskController;
+use Kkdshka\TodoListWeb\Controller\{
+    TaskController,
+    UserController
+};
 use Kkdshka\TodoListWeb\View\TwigRenderer;
-use Kkdshka\TodoList\Model\TaskManager;
-use Kkdshka\TodoList\Repository\RepositoryFactory;
+use Kkdshka\TodoList\Model\{
+    TaskManager,
+    UserManager
+};
+use \Kkdshka\TodoList\Repository\{
+    TaskSqliteRepository,
+    UserSqliteRepository
+};
 use Kkdshka\TodoListWeb\Http\Response;
 use Kkdshka\TodoListWeb\Http\Flash;
 
@@ -16,11 +25,14 @@ if (array_key_exists('flash', $_SESSION)) {
     $flash = new Flash();
 }
 
-$connectionUrl = "csv:C:/Development/Temp/todolist.csv";
-$repository = (new RepositoryFactory)->create($connectionUrl);
-$taskManager = new TaskManager($repository);
+$connectionUrl = "sqlite:C:/Development/Temp/todolist.db";
+$taskRepository = new TaskSqliteRepository($connectionUrl);
+$taskManager = new TaskManager($taskRepository);
 $renderer = new TwigRenderer(__DIR__ . "/templates");
 $taskController = new TaskController($taskManager, $renderer, $flash);
+$userRepository = new UserSqliteRepository($connectionUrl);
+$userManager = new UserManager($userRepository);
+$userController = new UserController($userManager, $renderer, $flash);
 
 if (array_key_exists('action', $_GET)) {
     $action = $_GET['action'];
@@ -50,6 +62,12 @@ elseif ($action == 'complete' && $method == 'GET') {
 }
 elseif ($action == 'delete' && $method == 'GET') {
     $response = $taskController->deleteAction($_GET['id']);
+}
+elseif ($action == 'register' && $method == 'GET') {
+    $response = $userController->newAction();
+}
+elseif ($action == 'register' && $method == 'POST') {
+    $response = $userController->createAction($_POST);
 }
 else {
     throw new InvalidArgumentException("Unknown action $action.");

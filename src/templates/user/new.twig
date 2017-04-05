@@ -1,0 +1,46 @@
+{% extends "base.twig" %}
+{% block title %}Creating new user{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="/public/css/form.css" />
+{% endblock %}
+{% block content %}
+    <div class="panel medium">
+        <div class="caption">New user</div>
+        <div class="panel-content">
+            <form action="/?action=register" method="POST">
+                {% for error in errors %} 
+                <div class="error">{{ error }}</div>
+                {% endfor %}
+                <div><label for="login">Login:</label></div>
+                <div>
+                    <input 
+                        type="text" 
+                        id="login" 
+                        name="login" 
+                        placeholder="Enter your login"
+                        value="{{ user.login }}"
+                    />
+                </div>
+                <div><label for="password">Password:</label></div>
+                <div>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Enter your password"
+                    />
+                </div>
+                <div><label for="repeatPassword">Repeat password:</label></div>
+                <div>
+                    <input 
+                        type="password" 
+                        id="repeatPassword" 
+                        name="repeatPassword" 
+                        placeholder="Repeat your password"
+                    />
+                </div>
+                <div><input class="button create" type="submit" value="Create"></div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -7,6 +7,7 @@
         {% block css %}{% endblock %}
     </head>
     <body>
+        <a title="Register" href="/?action=register">Register</a>
         {% for type, message in flash %}
             <div class="{{ type }}">{{ message }}</div>
         {% endfor %}

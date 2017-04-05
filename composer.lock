@@ -13,7 +13,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kkdshka/TodoList.git",
-                "reference": "0c451b1743b2e841c626cc0a8270e797c1402b27"
+                "reference": "7717bfdad09941a2b61f6f046c57a1325c15a448"
             },
             "require": {
                 "php": "~7.0"
@@ -39,7 +39,7 @@
                 }
             ],
             "description": "Demo educational project",
-            "time": "2017-02-20 15:11:06"
+            "time": "2017-04-03 15:28:10"
         }
     ],
     "packages-dev": [
@@ -141,16 +141,16 @@
         },
         {
             "name": "phake/phake",
-            "version": "v2.3.0",
+            "version": "v2.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mlively/Phake.git",
-                "reference": "2202d361d34f2712dcc257afdedc6c30060dc9bd"
+                "reference": "d5832f1a0dd2370e14d38bcbaeb6770e8546cff2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mlively/Phake/zipball/2202d361d34f2712dcc257afdedc6c30060dc9bd",
-                "reference": "2202d361d34f2712dcc257afdedc6c30060dc9bd",
+                "url": "https://api.github.com/repos/mlively/Phake/zipball/d5832f1a0dd2370e14d38bcbaeb6770e8546cff2",
+                "reference": "d5832f1a0dd2370e14d38bcbaeb6770e8546cff2",
                 "shasum": ""
             },
             "require": {
@@ -195,7 +195,7 @@
                 "mock",
                 "testing"
             ],
-            "time": "2016-03-04 18:49:33"
+            "time": "2017-03-20 05:16:34"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -408,16 +408,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "4.0.7",
+            "version": "4.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "09e2277d14ea467e5a984010f501343ef29ffc69"
+                "reference": "ef7b2f56815df854e66ceaee8ebe9393ae36a40d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/09e2277d14ea467e5a984010f501343ef29ffc69",
-                "reference": "09e2277d14ea467e5a984010f501343ef29ffc69",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/ef7b2f56815df854e66ceaee8ebe9393ae36a40d",
+                "reference": "ef7b2f56815df854e66ceaee8ebe9393ae36a40d",
                 "shasum": ""
             },
             "require": {
@@ -467,7 +467,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-03-01 09:12:17"
+            "time": "2017-04-02 07:44:40"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -794,23 +794,23 @@
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/code-unit-reverse-lookup.git",
-                "reference": "c36f5e7cfce482fde5bf8d10d41a53591e0198fe"
+                "reference": "4419fcdb5eabb9caa61a27c7a1db532a6b55dd18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/code-unit-reverse-lookup/zipball/c36f5e7cfce482fde5bf8d10d41a53591e0198fe",
-                "reference": "c36f5e7cfce482fde5bf8d10d41a53591e0198fe",
+                "url": "https://api.github.com/repos/sebastianbergmann/code-unit-reverse-lookup/zipball/4419fcdb5eabb9caa61a27c7a1db532a6b55dd18",
+                "reference": "4419fcdb5eabb9caa61a27c7a1db532a6b55dd18",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.6"
+                "php": "^5.6 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~5"
+                "phpunit/phpunit": "^5.7 || ^6.0"
             },
             "type": "library",
             "extra": {
@@ -835,7 +835,7 @@
             ],
             "description": "Looks up which function or method a line of code belongs to",
             "homepage": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/",
-            "time": "2016-02-13 06:45:14"
+            "time": "2017-03-04 06:30:41"
         },
         {
             "name": "sebastian/comparator",
@@ -1169,16 +1169,16 @@
         },
         {
             "name": "sebastian/recursion-context",
-            "version": "1.0.2",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/recursion-context.git",
-                "reference": "913401df809e99e4f47b27cdd781f4a258d58791"
+                "reference": "b19cc3298482a335a95f3016d2f8a6950f0fbcd7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/recursion-context/zipball/913401df809e99e4f47b27cdd781f4a258d58791",
-                "reference": "913401df809e99e4f47b27cdd781f4a258d58791",
+                "url": "https://api.github.com/repos/sebastianbergmann/recursion-context/zipball/b19cc3298482a335a95f3016d2f8a6950f0fbcd7",
+                "reference": "b19cc3298482a335a95f3016d2f8a6950f0fbcd7",
                 "shasum": ""
             },
             "require": {
@@ -1218,7 +1218,7 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
-            "time": "2015-11-11 19:50:13"
+            "time": "2016-10-03 07:41:43"
         },
         {
             "name": "sebastian/resource-operations",
@@ -1366,16 +1366,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.2.4",
+            "version": "v3.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "9724c684646fcb5387d579b4bfaa63ee0b0c64c8"
+                "reference": "093e416ad096355149e265ea2e4cc1f9ee40ab1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/9724c684646fcb5387d579b4bfaa63ee0b0c64c8",
-                "reference": "9724c684646fcb5387d579b4bfaa63ee0b0c64c8",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/093e416ad096355149e265ea2e4cc1f9ee40ab1a",
+                "reference": "093e416ad096355149e265ea2e4cc1f9ee40ab1a",
                 "shasum": ""
             },
             "require": {
@@ -1417,20 +1417,20 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-16 22:46:52"
+            "time": "2017-03-07 16:47:02"
         },
         {
             "name": "twig/twig",
-            "version": "v2.2.0",
+            "version": "v2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "29bb02dde09ff56291d30f7687eb8696918023af"
+                "reference": "9718186a5df85a4f7917e78d3ffcabc204c75d25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/29bb02dde09ff56291d30f7687eb8696918023af",
-                "reference": "29bb02dde09ff56291d30f7687eb8696918023af",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/9718186a5df85a4f7917e78d3ffcabc204c75d25",
+                "reference": "9718186a5df85a4f7917e78d3ffcabc204c75d25",
                 "shasum": ""
             },
             "require": {
@@ -1440,12 +1440,12 @@
             "require-dev": {
                 "psr/container": "^1.0",
                 "symfony/debug": "~2.7",
-                "symfony/phpunit-bridge": "~3.2"
+                "symfony/phpunit-bridge": "~3.3@dev"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2-dev"
+                    "dev-master": "2.3-dev"
                 }
             },
             "autoload": {
@@ -1480,7 +1480,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-02-27 00:16:20"
+            "time": "2017-03-22 15:41:51"
         },
         {
             "name": "webmozart/assert",
