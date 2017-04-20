@@ -7,12 +7,14 @@ use Kkdshka\TodoList\Model\{
     TaskManager,
     Status,
     Priority,
-    Task
+    Task,
+    NotFoundException as ModelNotFoundException
 };
 use Kkdshka\TodoListWeb\Http\ {
     Response,
     Flash,
-    Session
+    Session,
+    NotFoundException as HttpNotFoundException
 };
 use Kkdshka\TodoListWeb\View\Renderer;
 use Kkdshka\TodoListWeb\Authentification\{
@@ -206,7 +208,11 @@ class TaskController extends AbstractController {
      */
     private function findTask(int $id) : Task {
         $user = $this->userStorage->getUser();
-        return $this->taskManager->find($id, $user);
+        try {
+            return $this->taskManager->find($id, $user);
+        } catch (ModelNotFoundException $ex) {
+            throw new HttpNotFoundException("Can't find task with id = $id.", 0, $ex);
+        }
     }
     
     /**

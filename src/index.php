@@ -94,6 +94,10 @@ try {
         throw new InvalidArgumentException("Unknown action $action.");
     }
 }
+catch(NotFoundException $e) {
+    header("HTTP/1.0 404 Not Found");
+    exit(0);
+}
 catch(NotAuthentificatedException $e) {
     $response = new Response();
     $response->setHeader('location', '/?action=login');
