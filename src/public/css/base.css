@@ -36,3 +36,15 @@
     color: #44792f;
     margin-bottom: 2em;
 }
+
+.menu {
+    padding-bottom: 10px;
+    text-align: right;
+}
+
+.menu .button {
+    background-color: #dddddd;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;    
+}

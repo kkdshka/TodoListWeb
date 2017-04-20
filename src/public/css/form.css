@@ -20,6 +20,7 @@ form div {
 }
 
 .panel input[type="text"],
+.panel input[type="password"],
 .panel textarea {
     width: 75%;
 }
@@ -39,6 +40,7 @@ form div {
     border: none;
     border-radius: 3px;
     color: #ffffff;
+    font-size: 13px;
 }
 
 .save {
@@ -51,4 +53,9 @@ form div {
 
 .create {
     background: #5cb85c;
+}
+
+.register {
+    background: #dddddd;
+    text-decoration: none;
 }

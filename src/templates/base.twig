@@ -7,7 +7,12 @@
         {% block css %}{% endblock %}
     </head>
     <body>
-        <a title="Register" href="/?action=register">Register</a>
+        {% if loggedUser is defined %}
+            <div class="menu">
+                Hi, {{ loggedUser.login }}!
+                <a class="menu button logout" title="Logout" href="/?action=logout">Log out</a>
+            </div>
+        {% endif %}
         {% for type, message in flash %}
             <div class="{{ type }}">{{ message }}</div>
         {% endfor %}

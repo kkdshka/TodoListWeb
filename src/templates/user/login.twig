@@ -1,0 +1,40 @@
+{% extends "base.twig" %}
+{% block title %}Logging in{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="/public/css/form.css" />
+{% endblock %}
+{% block content %}
+    <div class="panel medium">
+        <div class="caption">Logging in</div>
+        <div class="panel-content">
+            <form action="/?action=login" method="POST">
+                {% for error in errors %} 
+                <div class="error">{{ error }}</div>
+                {% endfor %}
+                <div><label for="login">Login:</label></div>
+                <div>
+                    <input 
+                        type="text" 
+                        id="login" 
+                        name="login" 
+                        placeholder="Enter your login"
+                    />
+                </div>
+                <div><label for="password">Password:</label></div>
+                <div>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Enter your password"
+                    />
+                </div>
+                <div>
+                    <input class="button create" type="submit" value="Log in">
+                    <a class="button register" title="Register" href="/?action=register">Register</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
